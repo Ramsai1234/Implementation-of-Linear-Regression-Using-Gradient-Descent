@@ -29,6 +29,7 @@ Plot the graph respect to hours and scores using scatter plot function.
 
 ## step7
 End the program
+
 ~~
 
 
@@ -68,6 +69,7 @@ print (Y_pred)
 plt.scatter(X,Y,color='pink')
 plt.plot(X,Y_pred,color='blue')
 plt.show()
+
 ```
 
 ## Output:
