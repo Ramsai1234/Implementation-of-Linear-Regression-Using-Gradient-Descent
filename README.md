@@ -70,7 +70,7 @@ plt.show()
 ```
 
 ## Output:
-![GitHub Logo](/ramsai/png)
+![GitHub Logo](ramsai.png)
 
 ## Result:
 Thus the program to implement the linear regression using gradient descent is written and verified using python programming.
