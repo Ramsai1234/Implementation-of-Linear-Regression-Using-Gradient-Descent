@@ -79,7 +79,8 @@ plt.ylabel("loss")
 ```
 
 ## Output:
-![GitHub Logo](ramsai.png)
+![GitHub Logo](student.png)
+![GitHub Logo](hours.png)
 
 ## Result:
 Thus the program to implement the linear regression using gradient descent is written and verified using python programming.
