@@ -43,32 +43,38 @@ RegisterNumber:212221240041
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-data=pd.read_csv("student_scores.csv")
+data = pd.read_csv("student_scores.csv")
 data.head()
 data.isnull().sum()
-X=data.Hours
-X.head()
-Y=data.Scores
-Y.head()
-X_mean=np.mean(X)
-Y_mean=np.mean(Y)
-n=len(X)
-num=0
-den=0
-Loss=[]
-for i in range(len(X)):
-    MSE=(1/n)*((Y_mean-Y[i])**2)
-    num+=(X[i]-X_mean)*(Y[i]-Y_mean)
-    den+=(X[i]-X_mean)**2
-    Loss.append(MSE)
-m=num/den
-c=Y_mean-(m*X_mean)
-print (m, c)
-Y_pred=(m*X)+c
-print (Y_pred)
-plt.scatter(X,Y,color='pink')
-plt.plot(X,Y_pred,color='blue')
-plt.show()
+x = data.Hours
+x.head()
+y = data.Scores
+y.head()
+n = len(x)
+m = 0
+c = 0
+L = 0.001
+loss = []
+for i in range(10000):
+    ypred = m*x + c
+    MSE = (1/n) * sum((ypred - y)*2)
+    dm = (2/n) * sum(x*(ypred-y))
+    dc = (2/n) * sum(ypred-y)
+    c = c-L*dc
+    m = m-L*dm
+    loss.append(MSE)
+    #print(m)
+print(m,c)
+y_pred = m*x + c
+plt.scatter(x,y,color = "pink")
+plt.plot(x,y_pred)
+plt.xlabel("Study hours")
+plt.ylabel("Scores")
+plt.title("Study hours vs. Scores")
+plt.plot(loss)
+plt.xlabel("Iterations")
+plt.ylabel("loss")
+
 
 ```
 
